@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Cigna Automation Test" parallel="false">
 
@@ -9,10 +9,11 @@
     <parameter name="browserName" value="chrome"/>
     <parameter name="url" value="https://www.cigna.com/"/>
 
-<test name = "Cigna">
-    <classes>
-         <class name="testCases.TestPersonalPage"/>
-    </classes>
-</test>
+    <test name="Cigna">
+        <classes>
+           <!-- <class name="testCases.TestPersonalPage"/>-->
+            <class name="testCases.TestLoginPage"/>
+        </classes>
+    </test>
 
 </suite>

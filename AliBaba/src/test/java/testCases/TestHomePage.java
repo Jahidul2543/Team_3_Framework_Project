@@ -49,6 +49,7 @@ public class TestHomePage extends CommonAPI {
         sr.homePageButtonStatus();
 
     }
+
     @Test
     public void testCategories() throws InterruptedException {
         HomePage sr = PageFactory.initElements(driver, HomePage.class);
