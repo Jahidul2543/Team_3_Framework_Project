@@ -20,8 +20,6 @@ public class HomePage extends CommonAPI {
     public WebElement locationField;
     @FindBy(xpath = "//div[@id='resultSec']//div[1]/h1")
     public WebElement searchVerificationPoint;
-    /*@FindBy(className = "dropdown-menu dropdown-smartMenu slideUp")
-    public List<WebElement> techChareers = new ArrayList<>();*/
 
     public void getPageTitle() {
         String title = driver.getTitle();

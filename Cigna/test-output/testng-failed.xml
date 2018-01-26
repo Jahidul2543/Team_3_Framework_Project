@@ -2,19 +2,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Cigna Automation Test]">
   <parameter name="useCloudEnv" value="false"/>
-  <parameter name="os" value="windows"/>
-  <parameter name="browserName" value="chrome"/>
+  <parameter name="os" value="Windows"/>
+  <parameter name="os_version" value="10"/>
+  <parameter name="browserVersion" value="62.0"/>
+  <parameter name="browserName" value="Chrome"/>
+  <parameter name="cloudEnvName" value="browserstack"/>
   <parameter name="url" value="https://www.cigna.com/"/>
   <test name="Cigna(failed)">
     <classes>
-      <class name="testCases.TestPersonalPage">
+      <class name="testCases.TestExcelReader">
         <methods>
-          <include name="initilizationOfObject"/>
-          <include name="personalPageFunctions1"/>
+          <include name="searchProductUsingExcel"/>
+          <include name="afterEachTestMethod"/>
+          <include name="initialization"/>
+          <include name="generateReport"/>
+          <include name="extentSetup"/>
           <include name="setUp"/>
+          <include name="startExtent"/>
           <include name="closeOut"/>
         </methods>
-      </class> <!-- testCases.TestPersonalPage -->
+      </class> <!-- testCases.TestExcelReader -->
     </classes>
   </test> <!-- Cigna(failed) -->
 </suite> <!-- Failed suite [Cigna Automation Test] -->

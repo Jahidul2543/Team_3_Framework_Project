@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Cigna_Automation_Test">
-              <span class="suite-name border-passed">Cigna Automation Test</span>
+              <span class="suite-name border-failed">Cigna Automation Test</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Cigna_Automation_Test" class="hide-methods passed suite-Cigna_Automation_Test"> (hide)</a> <!-- hide-methods passed suite-Cigna_Automation_Test -->
-                      <a href="#" panel-name="suite-Cigna_Automation_Test" class="show-methods passed suite-Cigna_Automation_Test"> (show)</a> <!-- show-methods passed suite-Cigna_Automation_Test -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Cigna_Automation_Test" class="hide-methods failed suite-Cigna_Automation_Test"> (hide)</a> <!-- hide-methods failed suite-Cigna_Automation_Test -->
+                      <a href="#" panel-name="suite-Cigna_Automation_Test" class="show-methods failed suite-Cigna_Automation_Test"> (show)</a> <!-- show-methods failed suite-Cigna_Automation_Test -->
                     </span>
-                    <div class="method-list-content passed suite-Cigna_Automation_Test">
+                    <div class="method-list-content failed suite-Cigna_Automation_Test">
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Cigna_Automation_Test" title="testCases.TestLoginPage" hash-for-method="loginButton">loginButton</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Cigna_Automation_Test" title="testCases.TestExcelReader" hash-for-method="searchProductUsingExcel">searchProductUsingExcel</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Cigna_Automation_Test -->
+                    </div> <!-- method-list-content failed suite-Cigna_Automation_Test -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,21 +117,30 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Cigna_Automation_Test" class="panel Cigna_Automation_Test">
-          <div class="suite-Cigna_Automation_Test-class-passed">
+          <div class="suite-Cigna_Automation_Test-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">testCases.TestLoginPage</span>
+              <img src="failed.png"/>
+              <span class="class-name">testCases.TestExcelReader</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="loginButton">
-                  </a> <!-- loginButton -->
-                  <span class="method-name">loginButton</span>
+                  <a name="searchProductUsingExcel">
+                  </a> <!-- searchProductUsingExcel -->
+                  <span class="method-name">searchProductUsingExcel</span>
+                  <div class="stack-trace">java.io.FileNotFoundException: ..\Cigna\data\Data.xls (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:138)
+	at utility.DataReader.colReader(DataReader.java:67)
+	at page_objects.InputFromExcel.getAssertData(InputFromExcel.java:30)
+	at testCases.TestExcelReader.searchProductUsingExcel(TestExcelReader.java:25)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Cigna_Automation_Test-class-passed -->
+          </div> <!-- suite-Cigna_Automation_Test-class-failed -->
         </div> <!-- panel Cigna_Automation_Test -->
         <div panel-name="test-xml-Cigna_Automation_Test" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -143,13 +152,15 @@
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite thread-count=&quot;-1&quot; guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Cigna Automation Test&quot;&gt;
   &lt;parameter name=&quot;useCloudEnv&quot; value=&quot;false&quot;/&gt;
-  &lt;parameter name=&quot;os&quot; value=&quot;windows&quot;/&gt;
-  &lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot;/&gt;
+  &lt;parameter name=&quot;os&quot; value=&quot;Windows&quot;/&gt;
+  &lt;parameter name=&quot;os_version&quot; value=&quot;10&quot;/&gt;
+  &lt;parameter name=&quot;browserVersion&quot; value=&quot;62.0&quot;/&gt;
+  &lt;parameter name=&quot;browserName&quot; value=&quot;Chrome&quot;/&gt;
+  &lt;parameter name=&quot;cloudEnvName&quot; value=&quot;browserstack&quot;/&gt;
   &lt;parameter name=&quot;url&quot; value=&quot;https://www.cigna.com/&quot;/&gt;
   &lt;test name=&quot;Cigna&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testCases.TestPersonalPage&quot;/&gt;
-      &lt;class name=&quot;testCases.TestLoginPage&quot;/&gt;
+      &lt;class name=&quot;testCases.TestExcelReader&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Cigna --&gt;
 &lt;/suite&gt; &lt;!-- Cigna Automation Test --&gt;
@@ -163,7 +174,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Cigna (2 classes)</span>
+                <span class="test-name">Cigna (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -191,14 +202,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'loginButton')
-data.setCell(0, 2, 'testCases.TestLoginPage')
-data.setCell(0, 3, 12332);
+data.setCell(0, 1, 'searchProductUsingExcel')
+data.setCell(0, 2, 'testCases.TestExcelReader')
+data.setCell(0, 3, 1);
 window.suiteTableData['Cigna_Automation_Test']= { tableData: data, tableDiv: 'times-div-Cigna_Automation_Test'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 12 seconds</span>
+              <span class="suite-total-time">Total running time: 1 ms</span>
               <div id="times-div-Cigna_Automation_Test">
               </div> <!-- times-div-Cigna_Automation_Test -->
             </div> <!-- times-div -->
@@ -224,23 +235,41 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testCases.TestLoginPage</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp(false, false, windows, 10, chrome, 34, https://www.cigna.com/)</span>
+              <div class="chronological-class-name">testCases.TestExcelReader</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">extentSetup(org.testng.TestRunner@57ac5227)</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp(false, browserstack, Windows, 10, Chrome, 62.0, https://www.cigna.com/)</span>
+                <span class="method-start">995 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">initilizationOfObject</span>
-                <span class="method-start">14458 ms</span>
+                <span class="method-name">startExtent(public void testCases.TestExcelReader.searchProductUsingExcel() throws java.io.IOException,java.lang...)</span>
+                <span class="method-start">12194 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">initialization</span>
+                <span class="method-start">12202 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">loginButton</span>
-                <span class="method-start">14522 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">searchProductUsingExcel</span>
+                <span class="method-start">12241 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">closeOut</span>
-                <span class="method-start">26855 ms</span>
+                <span class="method-name">afterEachTestMethod([TestResult name=searchProductUsingExcel status=FAILURE method=TestExcelReader.searchProductUsingExc...)</span>
+                <span class="method-start">12253 ms</span>
               </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">closeOut</span>
+                <span class="method-start">14273 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-suite after">
+                <span class="method-name">generateReport</span>
+                <span class="method-start">14363 ms</span>
+              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

@@ -16,22 +16,18 @@ public class DataFileReader extends CommonAPI {
     public List<String> getAssertData(String fileName) throws IOException {
         String path = "../Dice/data/" + fileName;
         List<String> output = Arrays.asList(dtr.colReader(path, 2));
+        return output;
         /*List<String> output = new ArrayList<>();
         String[] outputArray = dtr.colReader(path, 2);*/
        // Collections.addAll(output,outputArray);
-        return output;
     }
 
-    public static void main(String[] args)throws IOException {
+    /*public static void main(String[] args)throws IOException {
         String path = "./Dice/data/" + "Dice.xls";
         String[]output1 = dtr.colReader(path,2);
        // List<String> output = Arrays.asList(output1);
        for (int i=0; i<output1.length; i++){
            System.out.println(output1[i]);
        }
-    }
+    }*/
 }
-/*List myList = new ArrayList();
-String[] myArray = new String[] {"Java", "Util", "List"};
-
-Collections.addAll(myList, myArray);*/
