@@ -15,7 +15,7 @@ public class TestHomePage extends HomePage{
     }
 
     //T3TWI_HP_TC01 go to About page and get HeroImage text
-  //  @Test
+   @Test
     public void testHeroImage(){
         String actual = objHomePage.goToAboutPageGetHeroImageText();
         String expected = "what’s happening";
@@ -23,7 +23,7 @@ public class TestHomePage extends HomePage{
         System.out.println("testHeroImage test passed");
     }
     //T3TWI_HP_TC02 Get list of links in Home page(anchor tags)
-   // @Test
+   @Test
     public void verifyTotalLinksHomePage(){
         int actual = objHomePage.findNumberOfLinks();
         String actualLinks = String.valueOf(actual); //convert int to String for assertion
@@ -32,21 +32,21 @@ public class TestHomePage extends HomePage{
         System.out.println("verifyTotalLinksHomePage test passed");
     }
     //T3TWI_HP_TC03 verify 'Help Center' link
-    //@Test
+    @Test
     public void testHelpCenterLink(){
        boolean actual = objHomePage.verifyHelpCenterLink();
        Assert.assertTrue(actual);
         System.out.println("testHelpCenterLink test passed");
     }
     //T3TWI_HP_TC04 verify Blog link
-    //@Test
+    @Test
     public void testBlogLink(){
         boolean actual = objHomePage.verifyBlogLink();
         Assert.assertTrue(actual);
         System.out.println("testBlogLink test passed");
     }
     //T3TWI_HP_TC05 Get items from Sortby drop box
-    //@Test
+    @Test
     public void testListSortBy(){
         objHomePage.getDropBoxList();
         System.out.println("testListSortBy test passed");

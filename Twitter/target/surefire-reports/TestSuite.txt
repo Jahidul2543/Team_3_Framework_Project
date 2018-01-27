@@ -1,11 +1,27 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 15, Failures: 3, Errors: 0, Skipped: 12, Time elapsed: 187.142 s <<< FAILURE! - in TestSuite
-testNumberOfList(testHomePageObjects.TestHomePage)  Time elapsed: 35.964 s  <<< FAILURE!
+Tests run: 44, Failures: 4, Errors: 0, Skipped: 36, Time elapsed: 330.039 s <<< FAILURE! - in TestSuite
+testHeroImage(testHomePageObjects.TestHomePage)  Time elapsed: 23.021 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at testHomePageObjects.TestHomePage.testHeroImage(TestHomePage.java:22)
+
+testListSortBy(testHomePageObjects.TestHomePage)  Time elapsed: 2.219 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+unknown error: Element <span class="StaticLoggedOutHomePage-validationIconContainer">...</span> is not clickable at point (1186, 379). Other element would receive the click: <input type="password" class="StaticLoggedOutHomePage-input text-input" name="user[user_password]" placeholder="Password">
+  (Session info: chrome=63.0.3239.132)
+  (Driver info: chromedriver=2.34.522940 (1a76f96f66e3ca7b8e57d503b4dd3bccfba87af1),platform=Windows NT 10.0.16299 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
+System info: host: 'JAHID', ip: '192.168.91.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptSslCerts: true, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.34.522940 (1a76f96f66e3ca..., userDataDir: C:\Users\Rabeka\AppData\Loc...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 63.0.3239.132, webStorageEnabled: true}
+Session ID: 6d91ce9a6817264716a7206ddabf02cd
+	at testHomePageObjects.TestHomePage.testListSortBy(TestHomePage.java:51)
+
+testBlankEmailPassword(testLoginPageObjects.testLoginPage)  Time elapsed: 47.863 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='doc']/div[1]//div[2]/div/a[2]"}
+no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='page-container']//button"}
   (Session info: chrome=63.0.3239.132)
   (Driver info: chromedriver=2.34.522940 (1a76f96f66e3ca7b8e57d503b4dd3bccfba87af1),platform=Windows NT 10.0.16299 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
@@ -14,26 +30,11 @@ Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.35
 System info: host: 'JAHID', ip: '192.168.91.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
 Capabilities {acceptSslCerts: true, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.34.522940 (1a76f96f66e3ca..., userDataDir: C:\Users\Rabeka\AppData\Loc...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 63.0.3239.132, webStorageEnabled: true}
-Session ID: 7eea5bc7c3eac630ab91d191eb4a49be
-*** Element info: {Using=xpath, value=//div[@id='doc']/div[1]//div[2]/div/a[2]}
-	at testHomePageObjects.TestHomePage.testNumberOfList(TestHomePage.java:33)
+Session ID: 12986e60eaa34bc74e75f87747d68a4a
+*** Element info: {Using=xpath, value=//div[@id='page-container']//button}
+	at testLoginPageObjects.testLoginPage.testBlankEmailPassword(testLoginPage.java:23)
 
-testSportsLink(testHomePageObjects.TestHomePage)  Time elapsed: 36.043 s  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='doc']/div[1]//div[2]/div/a[3]"}
-  (Session info: chrome=63.0.3239.132)
-  (Driver info: chromedriver=2.34.522940 (1a76f96f66e3ca7b8e57d503b4dd3bccfba87af1),platform=Windows NT 10.0.16299 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
-System info: host: 'JAHID', ip: '192.168.91.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptSslCerts: true, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.34.522940 (1a76f96f66e3ca..., userDataDir: C:\Users\Rabeka\AppData\Loc...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 63.0.3239.132, webStorageEnabled: true}
-Session ID: f7d541fdc821de70f380eb4429c933dc
-*** Element info: {Using=xpath, value=//div[@id='doc']/div[1]//div[2]/div/a[3]}
-	at testHomePageObjects.TestHomePage.testSportsLink(TestHomePage.java:40)
-
-setUp(testHomePageObjects.TestHomePage)  Time elapsed: 96.043 s  <<< FAILURE!
+setUp(testLoginPageObjects.testLoginPage)  Time elapsed: 104.814 s  <<< FAILURE!
 org.openqa.selenium.TimeoutException: 
 timeout
   (Session info: chrome=63.0.3239.132)
@@ -43,8 +44,5 @@ Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.35
 System info: host: 'JAHID', ip: '192.168.91.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
 Capabilities {acceptSslCerts: true, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.34.522940 (1a76f96f66e3ca..., userDataDir: C:\Users\Rabeka\AppData\Loc...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 63.0.3239.132, webStorageEnabled: true}
-Session ID: db391e43c6b4228bdf984f1903fea5ed
+Session ID: ae6241bbe34b217d3a74fe777b1be533
 
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.203 s - in TestSuite
->>>>>>> fbdd71ccf4b268d7d103579ac4c6a65f394cdc87

@@ -10,13 +10,26 @@
   <parameter name="url" value="https://twitter.com/"/>
   <test verbose="0" name="Twitter Home(failed)">
     <classes>
+      <class name="testSettingsPageObjects.testSettingsPage">
+        <methods>
+          <include name="testPersonlizeDevicesCheckBox"/>
+          <include name="testTrackTwitterCheckBox"/>
+          <include name="afterEachTestMethod"/>
+          <include name="generateReport"/>
+          <include name="testPersonlizeCheckBox"/>
+          <include name="extentSetup"/>
+          <include name="setUp"/>
+          <include name="startExtent"/>
+          <include name="initializePageObjects"/>
+          <include name="closeOut"/>
+        </methods>
+      </class> <!-- testSettingsPageObjects.testSettingsPage -->
       <class name="testHomePageObjects.TestHomePage">
         <methods>
-          <include name="verifyTotalLinksHomePage"/>
           <include name="initializePageObjects"/>
           <include name="afterEachTestMethod"/>
-          <include name="testNumberOfList"/>
-          <include name="testSportsLink"/>
+          <include name="testListSortBy"/>
+          <include name="testHeroImage"/>
           <include name="generateReport"/>
           <include name="extentSetup"/>
           <include name="setUp"/>
@@ -27,12 +40,15 @@
       <class name="testLoginPageObjects.testLoginPage">
         <methods>
           <include name="initializePageObjects"/>
+          <include name="testBlankEmailPassword"/>
           <include name="afterEachTestMethod"/>
           <include name="generateReport"/>
           <include name="extentSetup"/>
           <include name="setUp"/>
           <include name="startExtent"/>
+          <include name="testInvalidEmailBlankPassword"/>
           <include name="testInvalidEmailInvalidPassword"/>
+          <include name="testblankEmailInvalidPassword"/>
           <include name="closeOut"/>
         </methods>
       </class> <!-- testLoginPageObjects.testLoginPage -->
