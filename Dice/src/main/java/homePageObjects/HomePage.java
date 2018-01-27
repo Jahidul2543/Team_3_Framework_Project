@@ -5,7 +5,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,21 +39,11 @@ public class HomePage extends CommonAPI {
         Assert.assertTrue(logoIcon);
     }
 
-    public List<String> findNumberOfLink() {
-        System.out.println(anchorTag.size());
-        implicitWait(driver, 5);
-        List<String> actualLinks = new ArrayList<>();
-        for (int i = 0; i < anchorTag.size(); i = i + 1) {
-            implicitWait(driver, 5);
-            //System.out.println(anchorTag.get(i).getText());
-            if (anchorTag.get(i).getText() != null && anchorTag.get(i).getText().length() > 0) {
-                actualLinks.add(anchorTag.get(i).getText());
-            }
-        }
-        for (String link : actualLinks) {
-            System.out.println(link);
-        }
-        return actualLinks;
+    //Verify all available links in HomePage
+    public void findNumberOfLinksInHomePage() throws IOException {
+        List<String> actualLinkList = findNumberOfLink(anchorTag);
+        List<String> expectedLinkList = getAssertData("../Dice/data/DataFile.xls",2);
+        assertData(actualLinkList,expectedLinkList);
     }
 
     public void searchFromHomePage() {

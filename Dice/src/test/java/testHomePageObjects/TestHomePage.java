@@ -35,16 +35,10 @@ public class TestHomePage extends HomePage {
         objOfHomePage.veriyLogoDisplay();
     }
 
-    //T3DIC_HP_TC04 Verify Links
+    //T3DIC_HP_TC04 Verify All Links In HomePage
     @Test
     public void testAllLinksInHomePage() throws IOException {
-        List<String> actualLinkList = objOfHomePage.findNumberOfLink();
-        List<String> expectedLinkList = objOfDataFileReader.getAssertData("Dice2.xls");
-        for (int i = 0; i < actualLinkList.size(); i++) {
-            SoftAssert softAssert = new SoftAssert();
-            softAssert.assertTrue(actualLinkList.get(i).contains(expectedLinkList.get(i)));
-            System.out.println("testAllLinksInHomePage Test - Passed");
-        }
+        objOfHomePage.findNumberOfLinksInHomePage();
     }
 
     //T3DIC_HP_TC05 Search Option

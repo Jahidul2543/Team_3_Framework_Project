@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,6 +89,8 @@ public class HomePage extends CommonAPI {
     public static WebElement fNamePoPUpSignInWindow;
     @FindBy(xpath = "//div[@id='thirdPartLogin']/a[2]")
     public static WebElement googleIconOnPoPUpSignInWindow;
+    @FindBy(tagName = "a")
+    public List<WebElement> anchorTag = new ArrayList<>();
 
     //T3ALI_HP_TC01 Verify Home Page URL
     public String searchProduct() {
@@ -283,5 +286,11 @@ public class HomePage extends CommonAPI {
         implicitWait(driver, 15);
         fNamePoPUpSignInWindow.sendKeys("J Islam");
         googleIconOnPoPUpSignInWindow.click();
+    }
+    //Verify all available links in HomePage
+    public void findNumberOfLinksInHomePage() throws IOException {
+        List<String> actualLinkList = findNumberOfLink(anchorTag);
+        List<String> expectedLinkList = getAssertData("../AliBaba/data/HomePageLinkData.xls",2);
+        assertData(actualLinkList,expectedLinkList);
     }
 }

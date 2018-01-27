@@ -13,11 +13,11 @@
 
     <test name="Cigna">
         <classes>
-           <!-- <class name="features.TestFeatures"/>-->
+            <class name="features.TestFeatures"/>
             <class name="testCases.TestPersonalPage"/>
             <class name="testCases.TestLoginPage"/>
-           <!-- <class name="googleSheetPages.TestGoogleSheetPages"/>
-            <class name="testCases.TestExcelReader"/>-->
+            <class name="googleSheetPages.TestGoogleSheetPages"/>
+            <class name="testCases.TestExcelReader"/>
         </classes>
     </test>
 </suite>

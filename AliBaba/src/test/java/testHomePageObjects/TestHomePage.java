@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import productsPageObjects.ProductsPage;
 import signInPageObjects.SignInPage;
 
+import java.io.IOException;
+
 public class TestHomePage extends HomePage {
     HomePage objOfHomePage;
     SignInPage objOfSignInPage;
@@ -141,5 +143,9 @@ public class TestHomePage extends HomePage {
       String expected = "Wrong password";
       //Assert.assertTrue(actual.contains(expected));
 
+    }
+    @Test
+    public void testNumberOfLinksInHomePage() throws IOException {
+        objOfHomePage.findNumberOfLinksInHomePage();
     }
 }
