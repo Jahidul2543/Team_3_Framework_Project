@@ -1,6 +1,5 @@
 package testHomePageObjects;
 
-import dataObjects.DataFileReader;
 import homePageObjects.HomePage;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -13,12 +12,10 @@ import java.util.List;
 public class TestHomePage extends HomePage {
 
     HomePage objOfHomePage;
-    DataFileReader objOfDataFileReader;
 
     @BeforeMethod
     public void initializationOfElements() {
         objOfHomePage = PageFactory.initElements(driver, HomePage.class);
-        objOfDataFileReader = PageFactory.initElements(driver, DataFileReader.class);
     }
 
     //T3DIC_HP_TC01 Verify Home Page Title
