@@ -45,6 +45,10 @@ public class HomePage extends CommonAPI {
         List<String> expectedLinkList = getAssertData("../Dice/data/DataFile.xls",2);
         assertData(actualLinkList,expectedLinkList);
     }
+    //Verify all the available links are Visible
+    public void verifyAllLinkesAreVisible(){
+         waitUntilVisibleElements(anchorTag);
+    }
 
     public void searchFromHomePage() {
         keywordField.sendKeys("QA Analyst Selenium");

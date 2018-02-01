@@ -144,7 +144,7 @@ public class TestHomePage extends HomePage {
       //Assert.assertTrue(actual.contains(expected));
 
     }
-    @Test
+    @Test(priority = 17)
     public void testNumberOfLinksInHomePage() throws IOException {
         objOfHomePage.findNumberOfLinksInHomePage();
     }

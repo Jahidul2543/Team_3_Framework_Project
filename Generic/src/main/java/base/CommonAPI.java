@@ -89,7 +89,7 @@ public class CommonAPI {
     private String saucelabs_username = "aartipathania1";
     private String browserstack_username = "mjislam1";
     private String saucelabs_accesskey = "c59131c9-8821-4a81-b468-90769d7c1353";
-    private String browserstack_accesskey = "XRGG5ma4V3g4QzRhpMzr";
+    private String browserstack_accesskey = "nkPSXvCCS4MipNXKECyy";
 
     @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
     @BeforeMethod
@@ -322,11 +322,16 @@ public class CommonAPI {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+    public void waitUntilVisibleElements(List<WebElement> webElements){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        List<WebElement> element = wait.until(ExpectedConditions.visibilityOfAllElements(webElements));
+    }
+
     public void waitUntilSelectable(By locator){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         boolean element = wait.until(ExpectedConditions.elementToBeSelected(locator));
     }
-    public void upLoadFile(String locator,String path){
+        public void upLoadFile(String locator,String path){
         driver.findElement(By.cssSelector(locator)).sendKeys(path);
         /* path example to upload a file/image
            path= "C:\\Users\\rrt\\Pictures\\ds1.png";
