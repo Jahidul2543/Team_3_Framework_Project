@@ -54,7 +54,7 @@ public class TestSignInPage extends SignInPage {
     }
 
     //T3ALI_SI_TC03 Join Free Link status
-    @Test(priority = 3, enabled = true)
+   /* @Test(priority = 3, enabled = true)
     public void joinFreeLinkStatusTest() throws InterruptedException {
         // HomePage sr = PageFactory.initElements(driver, HomePage.class);
         try {
@@ -200,7 +200,7 @@ public class TestSignInPage extends SignInPage {
     }
 
     // T3ALI_SI_TC13 Sign in by valid Twitter account
-    @Test(priority = 12, enabled = true)
+    @Test(groups = {"smokeTest"},priority = 12, enabled = true)
     public void signInByValidGoogleAccountTest() {
         String winHandleBefore = driver.getWindowHandle();
         try {
@@ -226,5 +226,5 @@ public class TestSignInPage extends SignInPage {
             e.printStackTrace();
         }
         objOfSignInPage.getHlepHere();
-    }
+    }*/
 }

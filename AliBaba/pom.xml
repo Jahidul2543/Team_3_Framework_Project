@@ -37,6 +37,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <suitexmlFile>target/test-classes/AliBabaTestRunner.xml</suitexmlFile>
+                        <suiteXmlFile>target/test-classes/ParallelTestRunner</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

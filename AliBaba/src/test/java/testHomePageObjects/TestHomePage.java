@@ -20,8 +20,9 @@ public class TestHomePage extends HomePage {
         objOfSignInPage = PageFactory.initElements(driver, SignInPage.class);
         objOfProductsPage = PageFactory.initElements(driver, ProductsPage.class);
     }
-    // T3ALI_HP_TC01 Verify Home Page URL
-    @Test(priority = 1, enabled = true)
+
+   /* // T3ALI_HP_TC01 Verify Home Page URL
+   // @Test(priority = 1, enabled = true)
     public void testProductSearch() {
         String actual = objOfHomePage.searchProduct();
         String expected = "I Phone";
@@ -130,22 +131,30 @@ public class TestHomePage extends HomePage {
         String actual = objOfHomePage.topButtonVerification();
         String expected = "(1299, 542)";
        // Assert.assertTrue(actual.contains(expected));
-    }
+    }*/
     ////T3ALI_HP_TC14 Quotes request
-    @Test(priority = 16, enabled = true)
-    public void testQuotesRequestForm() throws InterruptedException {
-      objOfHomePage.quotesRequestForm();
-      objOfHomePage.quotesRequestFormDetails();
-      objOfHomePage.popUpSignIn();
-      switchWindow(driver);
-      String actual = objOfSignInPage.sendGoogleIdAndPassword();
-      sleepFor(40);
-      String expected = "Wrong password";
-      //Assert.assertTrue(actual.contains(expected));
+    @Test(groups = {"smokeTest"}, priority = 16, enabled = true)
+    public void testQuotesRequestForm() throws InterruptedException, IOException {
+        objOfHomePage.quotesRequestForm();
+        objOfHomePage.quotesRequestFormDetails();
+        objOfHomePage.popUpSignIn();
+        switchWindow(driver);
+        String actual = objOfSignInPage.sendGoogleIdAndPassword();
+        sleepFor(40);
+        String expected = "Wrong password";
+        //Assert.assertTrue(actual.contains(expected));
 
     }
-    @Test(priority = 17)
+
+     @Test(priority = 17)
+    public void testAlibabaAndroidAppDownload() throws IOException, InterruptedException {
+        objOfHomePage.alibabaAndroidAppsDownload();
+    }
+
+
+   //  @Test(priority = 18)
     public void testNumberOfLinksInHomePage() throws IOException {
         objOfHomePage.findNumberOfLinksInHomePage();
     }
+
 }

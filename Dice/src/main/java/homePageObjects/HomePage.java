@@ -1,6 +1,7 @@
 package homePageObjects;
 
 import base.CommonAPI;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -58,7 +59,15 @@ public class HomePage extends CommonAPI {
         String expected = "QA Analyst Selenium";
         Assert.assertTrue(actual.contains(expected));
     }
-
+    //*************************************************Out of Project Work//
+    public void sendKeysByJS() {
+        // To initialize js object
+        JavascriptExecutor JS = (JavascriptExecutor)driver;
+// To enter Location
+        JS.executeScript("document.getElementById('search-field-location').value= 'California'");
+// To enter password
+       // JS.executeScript("document.getElementById('Pass').value='tester'");
+    }
 }
 
 

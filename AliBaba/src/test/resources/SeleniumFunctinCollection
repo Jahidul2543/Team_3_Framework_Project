@@ -59,3 +59,11 @@
       WebDriver driver = new FirefoxDriver();
       JavascriptExecutor jse = (JavascriptExecutor)driver;
       jse.executeScript("window.scrollBy(0,250)", "");
+
+ 8.  How to sendKeys without sendKeys() method.
+     // To initialize js object
+     JavascriptExecutor JS = (JavascriptExecutor)webdriver;
+     // To enter username
+     JS.executeScript("document.getElementById(User').value='SoftwareTestingMaterial.com'");
+     // To enter password
+     JS.executeScript("document.getElementById('Pass').value='tester'");

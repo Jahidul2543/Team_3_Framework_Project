@@ -6,9 +6,12 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.security.UserAndPassword;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,7 +23,6 @@ import org.testng.asserts.SoftAssert;
 import reporting.ExtentManager;
 import reporting.ExtentTestManager;
 import utility.DataReader;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -109,12 +111,22 @@ public class CommonAPI {
         driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS); //35
         driver.get(url);
         driver.manage().window().maximize();
+        //This is to minimize the browser after initialization
+        // driver.manage().window().setPosition(new Point(-2000, 0));
+
+       /* Dimension d = new Dimension(420,600);
+        //Resize the current window to the given dimension
+        driver.manage().window().setSize(d);*/
+
     }
 
     public WebDriver getLocalDriver(String browserName, String os) {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (os.equalsIgnoreCase("windows")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/drivers/windows/chromedriver.exe");
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("headless");
+                options.addArguments("window-size=1200x600");
                 driver = new ChromeDriver();
             } else if (os.equalsIgnoreCase("mac")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/drivers/mac/chromedriver");
@@ -123,10 +135,10 @@ public class CommonAPI {
         } else if (browserName.equalsIgnoreCase("firefox")) {
             if (os.equalsIgnoreCase("windows")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/drivers/windows/geckodriver.exe");
-                driver = new ChromeDriver();
+                driver = new FirefoxDriver();
             } else if (os.equalsIgnoreCase("mac")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/drivers/mac/geckodriver");
-                driver = new ChromeDriver();
+                driver = new FirefoxDriver();
             }
         }
         return driver;
@@ -294,7 +306,6 @@ public class CommonAPI {
     }
 
     public static void captureScreenshot(WebDriver driver, String screenshotName){
-
         DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
         Date date = new Date();
         df.format(date);
@@ -306,22 +317,23 @@ public class CommonAPI {
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot "+e.getMessage());;
         }
-
     }
     //Taking Screen shots
     public void takeScreenShot()throws IOException {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(file,new File("screenShots.png"));
+        FileUtils.copyFile(file,new File("screenShots.png"));// copyFile(file source, file destinations)
     }
     //Synchronization
     public void waitUntilClickAble(WebElement webElement){
         WebDriverWait wait = new WebDriverWait(driver, 35);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
-    public void waitUntilVisible(By locator){
+
+    public void waitUntilVisible(WebElement webElement){
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
+
     public void waitUntilVisibleElements(List<WebElement> webElements){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         List<WebElement> element = wait.until(ExpectedConditions.visibilityOfAllElements(webElements));
@@ -381,6 +393,7 @@ public class CommonAPI {
         for (String link : actualLinks) {
             System.out.println(link);
         }
+       /*actualLinks.forEach(i-> System.out.println(i));*/
         return actualLinks;
     }
 
@@ -397,6 +410,16 @@ public class CommonAPI {
             softAssert.assertTrue(actualList.get(i).contains(expectedList.get(i)));
             System.out.println("LinkVerified " + expectedList.get(i));
         }
+       /* actualList.forEach((i-> {
+            SoftAssert softAssert = new SoftAssert();
+            softAssert.assertTrue(actualList.get(i).contains(expectedList.get(i)));
+            System.out.println("LinkVerified " + expectedList.get(i));
+        });*/
     }
-
+    // HTTP Authentications handling
+   public void httpAuthentication(String username, String password){
+       WebDriverWait testwait = new WebDriverWait(driver, 10);
+       Alert testalert =testwait.until(ExpectedConditions.alertIsPresent());
+       testalert.authenticateUsing(new UserAndPassword(username, password));
+   }
 }

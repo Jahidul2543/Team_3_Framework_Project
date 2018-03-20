@@ -19,26 +19,22 @@ public class ByInputFromExls extends CommonAPI {
     public static WebElement signInErrorMesage;
 
     DataReader dtr = new DataReader();
-    //T3ALI_BE _TC01
     public String[] getDataCol2(String fileName) throws IOException {
         String path = "../AliBaba/data/" + fileName;
         String[] output = dtr.colReader(path, 2); //col 2 = email
         return output;
     }
-    //T3ALI_BE _TC01
     public String[] getDataCol3(String fileName) throws IOException {
         String path = "../AliBaba/data/" + fileName;
         String[] output = dtr.colReader(path, 3); //col 3 = password
         return output;
     }
-    //T3ALI_BE _TC01
     public String[] getAssertData(String fileName) throws IOException {
         String path = "../AliBaba/data/" + fileName;
         String[] output = dtr.colReader(path, 4);
         return output;
     }
 
-    //T3ALI_BE _TC01 LogIn by using excel sheet data
     public String[] getVerificationValue(String fileName) throws IOException, InterruptedException {
         String[] col2Value = getDataCol2(fileName);
         String[] col3Value = getDataCol3(fileName);

@@ -4,7 +4,6 @@ import base.CommonAPI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +89,12 @@ public class HomePage extends CommonAPI {
     public static WebElement googleIconOnPoPUpSignInWindow;
     @FindBy(tagName = "a")
     public List<WebElement> anchorTag = new ArrayList<>();
+    @FindBy(xpath = "//*[@id=\"post-wrap\"]/div/form/div[4]/div/div[1]/div/div[3]/div/div/div[2]/div[2]/div[2]")
+    public static WebElement uploadFile;
+    @FindBy(xpath = "//div[2]/div[1]/div[2]/div[2]/a[1]")
+    public static WebElement downloadAPK;
+    @FindBy(xpath = "//*[@id=\"top\"]/div[2]/div/div[3]//div[2]/a")
+    public static WebElement downloadWhatsApp;
 
     //T3ALI_HP_TC01 Verify Home Page URL
     public String searchProduct() {
@@ -100,7 +105,6 @@ public class HomePage extends CommonAPI {
         System.out.println("Get Product Search Page Title: " + title);
         return title;
     }
-
     //T3ALI_HP_TC02
     public String searchSuppliers() {
         productSearchOption.click();
@@ -273,11 +277,36 @@ public class HomePage extends CommonAPI {
         System.out.println("Page Title: " + driver.getTitle());
     }
 
-    //RFQ Details
-    public void quotesRequestFormDetails() {
+    //RFQ Details, Upload a jpg image to with the order
+    public void quotesRequestFormDetails() throws InterruptedException, IOException {
         implicitWait(driver, 10);
         productDetailedSpecifications.sendKeys("30 Days");
+        uploadFile.click();
+        /*Used AutoIt to upload file from Windows.
+       1.Create FileUpload.au3 in ‘SciTe’ with bellow line of codes
+      (WinWaitActive("Open")
+      //Open for chrome browser in windows
+      Send("C:\Users\Rabeka\IdeaProjects\Team_3_Framework_Project\AliBaba\data\autoItFiles\laptop.jpg")
+      Send("{ENTER}")
+      2.Convert FileUpload.au3 to FileUpload.exe file by AutExe converter
+      Inside the helper method use this syntax to uoload a file from windows machine.*/
+        Runtime.getRuntime().exec("../AliBaba/data/autoItFiles/FileUpload.exe");
+        waitUntilClickAble(submitRFQ);
         submitRFQ.click();
+
+    }
+    // Download Alibaba Android Application form third party website using AutoIt
+    public void alibabaAndroidAppsDownload() throws IOException, InterruptedException {
+        driver.get("https://apkpure.com/alibaba-com-b2b-trade-app/com.alibaba.intl.android.apps.poseidon");
+        waitUntilClickAble(downloadAPK);
+        downloadAPK.click();
+       Runtime.getRuntime().exec("../AliBaba/data/autoItFiles/download/FileDownload.exe");
+       /* driver.get("https://www.whatsapp.com/download/");
+        waitUntilClickAble(downloadWhatsApp);
+        downloadWhatsApp.click();
+        Runtime.getRuntime().exec("../AliBaba/data/autoItFiles/download/FileDownload.exe");
+        sleepFor(40);*/
+
     }
 
     //PoP Up Sign In
@@ -286,10 +315,11 @@ public class HomePage extends CommonAPI {
         fNamePoPUpSignInWindow.sendKeys("J Islam");
         googleIconOnPoPUpSignInWindow.click();
     }
+
     //Verify all available links in HomePage
     public void findNumberOfLinksInHomePage() throws IOException {
         List<String> actualLinkList = findNumberOfLink(anchorTag);
-        List<String> expectedLinkList = getAssertData("../AliBaba/data/HomePageLinkData.xls",2);
-        assertData(actualLinkList,expectedLinkList);
+        List<String> expectedLinkList = getAssertData("../AliBaba/data/HomePageLinkData.xls", 2);
+        assertData(actualLinkList, expectedLinkList);
     }
 }

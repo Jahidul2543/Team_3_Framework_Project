@@ -20,7 +20,7 @@ public class TestHomePage extends HomePage {
 
     //T3DIC_HP_TC01 Verify Home Page Title
    // @Test
-    public void testGetTitle() {
+    /*public void testGetTitle() {
         objOfHomePage.getPageTitle();
         System.out.println("testGetTitle Passed");
     }
@@ -43,5 +43,10 @@ public class TestHomePage extends HomePage {
     public void testHomePageSearchOptions() {
         objOfHomePage.searchFromHomePage();
         System.out.println("searchFromHomePage Passed");
+    }*/
+    @Test
+    public void testSend() throws InterruptedException {
+        objOfHomePage.sendKeysByJS();
+        sleepFor(20);
     }
 }

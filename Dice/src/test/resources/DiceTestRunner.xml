@@ -15,7 +15,7 @@
     <test name = "Dice">
         <classes>
         <class name="testHomePageObjects.TestHomePage"/>
-         <class name="testLogInPageObjects.TestLogInPage"/>
+       <!--  <class name="testLogInPageObjects.TestLogInPage"/>-->
         </classes>
     </test>
 </suite>

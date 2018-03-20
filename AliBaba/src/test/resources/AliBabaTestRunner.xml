@@ -3,24 +3,24 @@
 
 <suite name="AliBaba Automation Test" parallel="false">
 
-    <parameter name="useCloudEnv" value="true"/>
+    <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnvName" value="browserstack"/>
     <parameter name="os" value="Windows"/>
     <parameter name="os_version" value="10"/>
-    <parameter name="browserName" value="Chrome"/>
+    <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="62.0"/>
     <parameter name="url" value="https://www.alibaba.com/"/>
 
 
 <test name = "Alibaba Home">
     <classes>
-        <class name="testHomePageObjects.TestHomePage"/>
+        <class name="testSignInPageObjects.TestByInputFromExls"/>
+      <!--  <class name="testHomePageObjects.TestHomePage"/>
         <class name="testGetHelPPageObjects.TestGetHelpHerePage"/>
         <class name="testSignInPageObjects.TestSignInPage"/>
         <class name="testProductsPageObjects.TestProductPage"/>
-        <class name="testSignInPageObjects.TestByInputFromExls"/>
         <class name="testSignInPageObjects.TestGoogleSheetsPage"/>
-        <class name="testKeyWordDriven.TestFeatures"/>
+        <class name="testKeyWordDriven.TestFeatures"/>-->
     </classes>
 
 </test>
